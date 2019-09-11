@@ -26,7 +26,6 @@ class App extends React.Component {
     };
 
     getDataFromServer().then(pokemons => {
-      console.log(pokemons);
       this.setState({ pokemons });
     });
   }
