@@ -18,22 +18,44 @@ const getDataFromServer = () => {
     });
 };
 
+let pokeFav = [];
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      pokemons: []
+      pokemons: [],
+      pokemonsFav: []
     };
 
     getDataFromServer().then(pokemons => {
-      this.setState({ pokemons });
+      this.setState({ pokemons: pokemons });
+    });
+    this.addToFav = this.addToFav.bind(this);
+  }
+
+  addToFav(ev) {
+    const pokeSelected = parseInt(ev.currentTarget.dataset.id);
+    let number = pokeFav.indexOf(pokeSelected);
+    if (pokeFav.includes(pokeSelected)) {
+      pokeFav.splice(number, 1);
+    } else {
+      pokeFav[pokeFav.length] = pokeSelected;
+    }
+    this.setState({
+      pokemonsFav: pokeFav
     });
   }
+
   render() {
     return (
       <div>
         <h1 className="appTitle">Mi Lista de Pokemon</h1>
-        <PokeList pokemons={this.state.pokemons} />
+        <PokeList
+          pokemons={this.state.pokemons}
+          addToFav={this.addToFav}
+          pokemonsFav={this.state.pokemonsFav}
+        />
       </div>
     );
   }
