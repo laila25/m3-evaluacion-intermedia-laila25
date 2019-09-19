@@ -1,0 +1,25 @@
+.title {
+  border-top: solid 1px grey;
+  border-bottom: solid 1px grey;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.types {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.typeItem {
+  list-style: none;
+  text-transform: uppercase;
+  border: solid 1px grey;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+  margin-left: 10px;
+  font-size: 12px;
+  padding: 5px;
+}
