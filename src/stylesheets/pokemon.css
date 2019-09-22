@@ -23,3 +23,11 @@
   font-size: 12px;
   padding: 5px;
 }
+
+.fav {
+  color: red;
+}
+
+.hidden {
+  display: none;
+}
